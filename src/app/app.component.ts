@@ -117,7 +117,8 @@ export class AppComponent {
       'complete',
       'follow',
       'วิริยา',
-      'พลฤทธิ์'
+      'พลฤทธิ์',
+      'รหัสเคส'
     ]);
     data.forEach((item)=>{
       Worksheet.addRow([
@@ -183,7 +184,8 @@ export class AppComponent {
         item.complete,
         item.follow,
         item.wiriya,
-        item.pookpak
+        item.pookpak,
+        item.short_id
       ]);
     });
 
@@ -406,9 +408,9 @@ export class AppComponent {
           if(this.data[i].description?.includes(',')){
             const des:string[] = this.data[i].description?.split(',');
             case2.school_name = des[0];
-            case2.short_id=this.data[i].short_id;
             case2.howtofix = des[2]            
           }
+          case2.short_id=this.data[i].short_id;
           case2.problem_name = this.data[i].name;
           case2.date = this.data[i].created_at;
           switch(this.admin){
