@@ -1,0 +1,205 @@
+import { NumberSymbol } from "@angular/common"
+
+export class Case{
+    date?:Date;
+    list?:number;
+    school_name?:string;
+    problem_name?:string;
+    howtofix?:string;
+    crud?:number;
+    shop?:number;
+    cashier?:number;
+    user?:number;
+    recommend?:number;
+    gate_notworking?:number;
+    time_program_system?:number;
+    attendance? :number;
+    infomation_student_register?:number;
+    homeroom?:number;
+    visit_home?:number;
+    sdq_eq?:number;
+    person?:number;
+    public_relations?:number;
+    hybrid_classroom?:number;
+    ai_classroom_number?:number;
+    digital_resource_center?:number;
+    recruiting?:number;
+    libraly_digital?:number;
+    synce?:number;
+    internet_gate?:number;
+    internet_person?:number;
+    internet_food?:number;
+    network_lan?:number;
+    network_fiber?:number;
+    bank_notsend?:number;
+    DDNS?:number;
+    import_data?:number;
+    cloud?:number;
+    picture?:number;
+    start_system?:number;
+    card_damaged?:number;
+    remote_edit?:number;
+    services?:number;
+    openSystem_remote_edit?:number;
+    openSystem_services?:number;
+    report?:number;
+    app?:number;
+    make_card?:number;
+    megvii?:number;
+    hikvision?:number;
+    gate747?:number;
+    ip_camera?:number;
+    ra_fr?:number;
+    pc_MB_Raspherrypi?:number;
+    ups?:number;
+    tv?:number;
+    server?:number;
+    hub?:number;
+    pipo?:number;
+    customer_display?:number;
+    rfid?:number;
+    top_up_cupboard?:number;
+    smart_plug?:number;
+    complete?:number;
+    follow?:number;
+    wiriya?:number;
+    pookpak?:number;
+    komin?:number;
+    greet?:number;
+    short_id?:string;
+    constructor(
+        date=new Date(),
+        list=0,
+        school_name="",
+        problem_name="",
+        howtofix?:string,
+        crud=0,
+        shop=0,
+        cashier=0,
+        user=0,
+        recommend=0,
+        gate_notworking=0,
+        time_program_system=0,
+        attendance :number=0,
+        infomation_student_register=0,
+        homeroom=0,
+        visit_home=0,
+        sdq_eq=0,
+        person=0,
+        public_relations=0,
+        hybrid_classroom=0,
+        ai_classroom_number=0,
+        digital_resource_center=0,
+        recruiting=0,
+        libraly_digital=0,
+        synce=0,
+        internet_gate=0,
+        internet_person=0,
+        internet_food=0,
+        network_lan=0,
+        network_fiber=0,
+        bank_notsend=0,
+        DDNS=0,
+        import_data=0,
+        cloud=0,
+        picture=0,
+        start_system=0,
+        card_damaged=0,
+        remote_edit=0,
+        services=0,
+        openSystem_remote_edit=0,
+        openSystem_services=0,
+        report=0,
+        app=0,
+        make_card=0,
+        megvii=0,
+        hikvision=0,
+        gate747=0,
+        ip_camera=0,
+        ra_fr=0,
+        pc_MB_Raspherrypi=0,
+        ups=0,
+        tv=0,
+        server=0,
+        hub=0,
+        pipo=0,
+        customer_display=0,
+        rfid=0,
+        top_up_cupboard=0,
+        smart_plug=0,
+        complete=0,
+        follow=0,
+        wiriya=0,
+        pookpak=0,
+        komin=0,
+        greet=0, 
+        short_id=""
+    ){
+this.date=date,
+this.list=list,
+this.school_name=school_name,
+this.problem_name=problem_name,
+this.howtofix=howtofix,
+this.crud=crud,
+this.shop=shop,
+this.cashier=cashier,
+this.user=user,
+this.recommend=recommend,
+this.gate_notworking=gate_notworking,
+this.time_program_system=time_program_system,
+this.attendance=attendance,
+this.infomation_student_register=infomation_student_register,
+this.homeroom=homeroom,
+this.visit_home=visit_home,
+this.sdq_eq=sdq_eq,
+this.person=person,
+this.public_relations=public_relations,
+this.hybrid_classroom=hybrid_classroom,
+this.ai_classroom_number=ai_classroom_number,
+this.digital_resource_center=digital_resource_center,
+this.recruiting=recruiting,
+this.libraly_digital=libraly_digital,
+this.synce=synce,
+this.internet_gate=internet_gate,
+this.internet_person=internet_person,
+this.internet_food=internet_food,
+this.network_lan=network_lan,
+this.network_fiber=network_fiber,
+this.bank_notsend=bank_notsend,
+this.DDNS=DDNS,
+this.import_data=import_data,
+this.cloud=cloud,
+this.picture=picture,
+this.start_system=start_system,
+this.card_damaged=card_damaged,
+this.remote_edit=remote_edit,
+this.openSystem_remote_edit=openSystem_remote_edit,
+this.openSystem_services=openSystem_services,
+this.services=services,
+this.report=report,
+this.app=app,
+this.make_card=make_card,
+this.megvii=megvii,
+this.hikvision=hikvision,
+this.gate747=gate747,
+this.ip_camera=ip_camera,
+this.ra_fr=ra_fr,
+this.pc_MB_Raspherrypi=pc_MB_Raspherrypi,
+this.ups=ups,
+this.tv=tv,
+this.server=server,
+this.hub=hub,
+this.pipo=pipo,
+this.customer_display=customer_display,
+this.rfid=rfid,
+this.top_up_cupboard=top_up_cupboard,
+this.smart_plug=smart_plug,
+this.complete=complete,
+this.follow=follow,
+this.wiriya=wiriya,
+this.pookpak=pookpak,
+this.komin=komin
+this.greet=greet,
+this.short_id=short_id
+    }
+}
