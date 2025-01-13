@@ -65,6 +65,10 @@ export class Case{
     komin?:string;
     greet?:string;
     short_id?:string;
+    school_undefine?:string;
+    tag_undefine?:string;
+    howtofix_undefine?:string;
+    user_undefine?:string
     constructor(
         date=new Date(),
         list="",
@@ -131,7 +135,11 @@ export class Case{
         pookpak="",
         komin="",
         greet="", 
-        short_id=""
+        short_id="",
+        school_undefine="",
+        tag_undefine="",
+        howtofix_undefine="",
+        user_undefine=""
     ){
 this.date=date,
 this.list=list,
@@ -198,6 +206,10 @@ this.wiriya=wiriya,
 this.pookpak=pookpak,
 this.komin=komin
 this.greet=greet,
-this.short_id=short_id
+this.short_id=short_id,
+this.school_undefine = school_undefine,
+this.tag_undefine = tag_undefine,
+this.howtofix_undefine = howtofix_undefine,
+this.user_undefine=user_undefine
     }
 }

@@ -1,0 +1,69 @@
+@if(isShowCaseee){
+    <div class="cas-container" >
+        <div class="cas-body" #casconDiv>
+            <div class="Head">
+                <span>Head</span>
+                <i class="bi bi-bookmark-x" (click)="isDisable()" style="font-size: 25px;"></i>
+            </div>
+            <hr>
+            <div style="width: 100%;height: 80%;overflow-y: auto;">
+                <div class="modal-body">
+                <label for="basic-url" class="form-label">ชื่อเคส</label>
+                    <input type="text" class="form-control">
+                </div>
+                
+                <div class="modal-body" style="margin-top: 15px;">
+                <label class="form-label">แท็กเคส</label>
+                    <div class="icon-wrapper"  #targetdiv>
+                        @if(isShow){
+                            <div class="popup-box" id="popup-box">
+                                <!-- เนื้อหาในกล่องที่ปรากฏ -->    
+                                <select  style="height: 200px;" class="form-select" multiple aria-label="multiple select example">
+                                    @for(item of tagsname;track $index){
+                                        <option (click)="onDoubleClick(item.id)" value={{item.id}}>{{item.tag_name}}</option>
+                                    }
+
+                                </select>
+                            </div>
+                        }
+                        <i class="bi bi-plus-square" (click)="tags_click()" id="toggle-box" style="font-size: 25px;"></i>
+                        <div class="tagsdetail">
+                            @for(item of tagslist;track $index){
+                                <div class="tag-list">{{item.tag_name}}<i class="bi bi-x-lg" (click)="deletetag(item.id,$index)" style="margin-left: 5px;"></i></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body" style="margin-top: 15px;">
+                <label for="exampleDataList" class="form-label">ชื่อโรงเรียน</label>
+                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="ชื่อโรงเรียน...">
+                <datalist id="datalistOptions">
+                    @for(item of schoolname;track $index){
+                    <option value={{item.school_name}}>
+                    }
+                </datalist>
+                </div>
+                <div class="modal-body" style="margin-top: 15px;">
+                <label for="basic-url" class="form-label">ประเภท User</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>ครู</option>
+                    <option value="นักเรียน">นักเรียน</option>
+                    <option value="เซลล์">เซลล์</option>
+                    <option value="ร้านค้า">ร้านค้า</option>
+                </select>
+                </div>
+                <div class="modal-body" style="margin-top: 15px;">
+                <label for="basic-url" class="form-label">วิธีแก้ไข</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control">
+                </div>
+                </div>
+            </div>
+            <hr>
+            <div class="bd-foot">
+                <button type="button" class="btn btn-light" style="margin-right: 10px;">ยกเลิก</button>
+                <button type="button" class="btn btn-danger">บันทึก</button>
+            </div>
+        </div>
+    </div>
+}

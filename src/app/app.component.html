@@ -1,103 +1,133 @@
-<form [formGroup]="fg_url" (ngSubmit)="loadData()" style="margin-left: 20px;margin-top: 10px;">
-  <div class="mb-3" style="width: 90%;">
-    <label for="basic-url" class="form-label">URL</label>
-    <div class="input-group">
-      <span class="input-group-text" id="basic-addon3">Url</span>
-      <input type="text" formControlName="url" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-      <input id="da" value="test">
-    </div>
-  </div>
+<div #appDiv style="height: 100vh;">
+  <button type="button" class="btn btn-primary" style="margin: 20px;width: 97%;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Setting
+  </button>
 
-  <div class="mb-3" style="width: 90%;">
-    <label for="basic-url" class="form-label">Authorize</label>
-    <div class="input-group">
-      <span class="input-group-text" id="basic-addon3">Authorize Token</span>
-      <input type="text" formControlName="aut" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-    </div>
-  </div>
-
-  <select class="form-select" formControlName="admin" aria-label="Default select example" (change)="selectChange()" style="width: 90%;">
-    <option selected>ปั๊กคุง</option>
-    <option value="ปั๊กคุง">ปั๊กคุง</option>
-    <option value="Kae">Kae</option>
-    <option value="Komin">Komin</option>
-  </select>
-
-  <div style="display: flex;flex-direction: row;justify-content: center;width: 100vw;">
-    <form [formGroup]="fg_date" style="width: 100%;" (ngSubmit)="loadData()">
-      <div class="row">
-        <div class="col-sm">
-          <input type="datetime-local"formControlName="date_start" style="width: 95%;margin-top: 20px;" (change)="startDateChange()">
-        </div>  
-        <div class="col-sm">
-          <input type="datetime-local" formControlName="date_end" style="width: 95%;margin-top: 20px;" (change)="startDateChange()">
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Setting</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <button type="submit"  class="btn btn-primary" style="width: 100%;margin-top: 20px;">Load</button>
+        <div class="modal-body">
+          <form [formGroup]="fg_url" (ngSubmit)="loadData()" style="margin-left: 20px;margin-top: 10px;">
+            <div class="mb-3" style="width: 90%;">
+              <label for="basic-url" class="form-label">URL</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon3">Url</span>
+                <input type="text" formControlName="url" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+              </div>
+            </div>
+          
+            <div class="mb-3" style="width: 90%;">
+              <label for="basic-url" class="form-label">Authorize</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon3">Authorize Token</span>
+                <input type="text" formControlName="aut" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+              </div>
+            </div>
+          
+            <select class="form-select" formControlName="admin" aria-label="Default select example" (change)="selectChange()" style="width: 90%;">
+              <option selected>ปั๊กคุง</option>
+              <option value="ปั๊กคุง">ปั๊กคุง</option>
+              <option value="Kae">Kae</option>
+              <option value="Komin">Komin</option>
+            </select>
+          
+            <div style="display: flex;flex-direction: row;justify-content: center;width: 100%;">
+              <form [formGroup]="fg_date" style="width: 100%;" (ngSubmit)="loadData()">
+                <div class="row">
+                  <div class="col-sm">
+                    <input type="datetime-local"formControlName="date_start" style="width: 95%;margin-top: 20px;" (change)="startDateChange()">
+                  </div>  
+                  <div class="col-sm">
+                    <input type="datetime-local" formControlName="date_end" style="width: 95%;margin-top: 20px;" (change)="startDateChange()">
+                  </div>
+                  <button type="submit" data-bs-dismiss="modal"  class="btn btn-primary" style="width: 100%;margin-top: 20px;">Load</button>
+                </div>
+              </form>
+            </div>
+          </form>
+        </div>
       </div>
-    </form>
+    </div>
   </div>
 
-  
-</form>
+  <!-- Button trigger modal -->
+  <button #btnrec type="button" style="margin: 20px;width: 97%;" (click)="showCase()" class="btn btn-danger">บันทึกเคส +</button>
+  @if(isShowCase){
+    <app-tags [isShowCaseee]="isShowCase" (isShowCaseeeChanged)="onValueChange($event)"/>
+  }
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">วันที่</th>
-      <th scope="col">ชื่อ รร.</th>
-      <th scope="col">ชื่อปัญหา</th>
-      <th scope="col">แท็ก</th>
-      <th scope="col">วิธีแก้ไข</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for(item of data; track $index) {
-      @if(item.assignee_member?.member_id?.display_name == admin) {
+
+
+  <div class="tbcontainer" style="margin: 20px;">
+    <table class="table table-striped customcontainer">
+      <thead>
         <tr>
-          <th scope="row">{{ item.created_at }}</th>
-          
-          <!-- แยกข้อมูลด้วย split และจัดการกรณีไม่มีเครื่องหมายคอมมา -->
-          @if(item.description?.includes(',')) {
-            @for(school of item.description.split(','); track $index) {
-              @if($index == 0) {
-                <td>{{ school }}</td>
-              }
-            }
-          } @else {
-            <td>{{ item.description || 'ไม่ทราบ' }}</td>
-          }
-          
-          <td>{{ item.name }}</td>
-          
-          <td>
-            @for(item2 of item.tags; track $index) {
-              {{ item2 }}<br>
-            }
-          </td>
-          
-          <!-- ตรวจสอบวิธีแก้ไข (ตำแหน่งที่ 2) -->
-          @if(item?.description?.includes(',')) {
-            @for(edit of item.description.split(','); track $index) {
-              @if($index == 2) {
-                <td>{{ edit }}</td>
-              }
-            }
-          } @else {
-            <td>-</td>
-          }
+          <th scope="col">วันที่ปิดเคส</th>
+          <th scope="col">ชื่อ รร.</th>
+          <th scope="col">ชื่อปัญหา</th>
+          <th scope="col">วิธีแก้ไข</th>
+          <th scope="col">แท็ก</th>
+          <th scope="col">รหัสเคส</th>
         </tr>
-      }
-    }@empty {
-      @if(isloading){
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      }
-      
-    }
-    
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+        @for(item of data; track $index) {
+          @if(item.assignee_member?.member_id?.display_name == admin) {
+            <tr>
+              <th scope="row">{{ item.closed_at | date:'yyyy-MM-dd HH:mm'}}</th>
+              
 
-      
+              <!-- แยกข้อมูลด้วย split และจัดการกรณีไม่มีเครื่องหมายคอมมา -->
+              @if(item.description?.includes(',')) {
+                @for(school of item.description.split(','); track $index) {
+                  @if($index == 0) {
+                    <td>{{ school }}</td>
+                  }
+                }
+              } @else {
+                <td><span style="background-color: red;">{{ item.description || 'ไม่ได้บันทึก' }}</span></td>
+              }
+              <td>{{ item.name }}</td>
+
+              <!-- ตรวจสอบวิธีแก้ไข (ตำแหน่งที่ 2) -->
+              @if(item?.description?.includes(',')) {
+                @for(edit of item.description.split(','); track $index) {
+                  @if($index == 2) {
+                    <td>{{ edit }}</td>
+                  }
+                }
+              } @else {
+                <td><span style="background-color: red;">ไม่ได้บันทึก</span></td>
+              }
+              
+              <td>
+                @for(item2 of item.tags_migrate_objectid; track $index) {
+                    {{ item2.keyword }}<br>
+                }@empty {
+                  <span style="background-color: red;">ไม่ได้บันทึก</span>
+                }
+              </td>
+              <td>{{item.short_id}}</td>
+              
+              
+            </tr>
+          }
+        }@empty {
+          @if(isloading){
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          }
+          
+        }
+        
+      </tbody>
+    </table>
+  </div>   
+</div> 
 <router-outlet />

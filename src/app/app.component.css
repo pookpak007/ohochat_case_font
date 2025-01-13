@@ -1,0 +1,17 @@
+.tbcontainer{
+    max-height: 700px;
+    overflow-y: auto;
+    border: 1px solid #ddd
+}
+
+.customcontainer{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tbcontainer thead th{
+    position: sticky;
+    top: 0;
+    background-color:  #f4f4f4;
+    z-index: 10;
+}
